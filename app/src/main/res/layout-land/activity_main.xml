@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,198 +9,199 @@
     tools:context="com.example.android.bowling.MainActivity">
 
     <LinearLayout
-        android:layout_width="@dimen/null_margin_padding"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            style="@style/land_title"
-            android:layout_weight="1"
-            android:text="@string/landTitle1" />
-
-        <TextView
-            style="@style/land_title"
-            android:layout_weight="1"
-            android:text="@string/landTitle2" />
-
-    </LinearLayout>
-
-    <TextView style="@style/vertical_separator" />
-
-    <LinearLayout
-        android:layout_width="@dimen/null_margin_padding"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            style="@style/land_flavorTextBox"
-            android:layout_weight="4">
-
-            <TextView
-                android:id="@+id/header"
-                style="@style/header_flavorBox"
-                android:layout_weight="1"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/flavor"
-                style="@style/flavor_flavorBox"
-                android:layout_weight="1"
-                android:text="" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/null_margin_padding"
-            android:layout_weight="2"
+            android:layout_width="@dimen/null_margin_padding"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <TextView
-                style="@style/playerName_Field"
+                style="@style/land_title"
                 android:layout_weight="1"
-                android:text="@string/player_1_name" />
+                android:text="@string/landTitle1" />
 
             <TextView
-                style="@style/playerName_Field"
+                style="@style/land_title"
                 android:layout_weight="1"
-                android:text="@string/player_2_name" />
+                android:text="@string/landTitle2" />
 
         </LinearLayout>
 
+        <TextView style="@style/vertical_separator" />
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/null_margin_padding"
-            android:layout_weight="2"
-            android:orientation="horizontal">
+            android:layout_width="@dimen/null_margin_padding"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/player_1_score"
-                style="@style/land_mainScoreDisplay"
-                android:layout_weight="1"
-                android:text="" />
+            <LinearLayout
+                style="@style/land_flavorTextBox"
+                android:layout_weight="4">
 
-            <TextView
-                android:id="@+id/player_2_score"
-                style="@style/land_mainScoreDisplay"
-                android:layout_weight="1"
-                android:text="" />
+                <TextView
+                    android:id="@+id/header"
+                    style="@style/header_flavorBox"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/flavor"
+                    style="@style/flavor_flavorBox"
+                    android:layout_weight="1"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/null_margin_padding"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/playerName_Field"
+                    android:layout_weight="1"
+                    android:text="@string/player_1_name" />
+
+                <TextView
+                    style="@style/playerName_Field"
+                    android:layout_weight="1"
+                    android:text="@string/player_2_name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/null_margin_padding"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/player_1_score"
+                    style="@style/land_mainScoreDisplay"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/player_2_score"
+                    style="@style/land_mainScoreDisplay"
+                    android:layout_weight="1"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/null_margin_padding"
+                android:layout_margin="@dimen/small_margin_padding"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/round_TextField"
+                    android:layout_weight="1"
+                    android:text="@string/round" />
+
+                <TextView
+                    android:id="@+id/rounds"
+                    style="@style/roundCount_Field"
+                    android:layout_weight="1"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/null_margin_padding"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/strikesSpares_TextField"
+                    android:layout_weight="2"
+                    android:text="@string/strikesText" />
+
+                <TextView
+                    android:id="@+id/player_1_strikes"
+                    style="@style/strikesSpares_CountField"
+                    android:layout_weight="1"
+
+                    android:text="" />
+
+                <TextView
+                    style="@style/strikesSpares_TextField"
+                    android:layout_weight="2"
+                    android:text="@string/strikesText" />
+
+                <TextView
+                    android:id="@+id/player_2_strikes"
+                    style="@style/strikesSpares_CountField"
+                    android:layout_weight="1"
+                    android:text="" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/null_margin_padding"
+                android:layout_weight="1">
+
+
+                <TextView
+                    style="@style/land_strikesSpares_TextField"
+                    android:layout_weight="2"
+                    android:text="@string/sparesText" />
+
+                <TextView
+                    android:id="@+id/player_1_spares"
+                    style="@style/land_strikesSpares_CountField"
+                    android:layout_weight="1"
+                    android:text="" />
+
+                <TextView
+                    style="@style/land_strikesSpares_TextField"
+                    android:layout_weight="2"
+                    android:text="@string/sparesText" />
+
+                <TextView
+                    android:id="@+id/player_2_spares"
+                    style="@style/land_strikesSpares_CountField"
+                    android:layout_weight="1"
+                    android:text="" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/null_margin_padding"
-            android:layout_margin="@dimen/small_margin_padding"
-            android:layout_weight="1">
-
-            <TextView
-                style="@style/round_TextField"
-                android:layout_weight="1"
-                android:text="@string/round" />
-
-            <TextView
-                android:id="@+id/rounds"
-                style="@style/roundCount_Field"
-                android:layout_weight="1"
-                android:text="" />
-
-        </LinearLayout>
-
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/null_margin_padding"
-            android:layout_weight="1">
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/null_margin_padding"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TextView
-                style="@style/strikesSpares_TextField"
-                android:layout_weight="2"
-                android:text="@string/strikesText" />
-
-            <TextView
-                android:id="@+id/player_1_strikes"
-                style="@style/strikesSpares_CountField"
+            <Button
+                style="@style/land_redButton"
                 android:layout_weight="1"
+                android:onClick="player1roll"
+                android:text="@string/player_1_roll" />
 
-                android:text="" />
-
-            <TextView
-                style="@style/strikesSpares_TextField"
-                android:layout_weight="2"
-                android:text="@string/strikesText" />
-
-            <TextView
-                android:id="@+id/player_2_strikes"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <Button
+                style="@style/land_redButton"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text=""
-                android:textStyle="bold" />
+                android:onClick="reset"
+                android:text="@string/reset" />
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/null_margin_padding"
-            android:layout_weight="1">
-
-
-            <TextView
-                style="@style/land_strikesSpares_TextField"
-                android:layout_weight="2"
-                android:text="@string/sparesText" />
-
-            <TextView
-                android:id="@+id/player_1_spares"
-                style="@style/land_strikesSpares_CountField"
+            <Button
+                style="@style/land_redButton"
                 android:layout_weight="1"
-                android:text="" />
-
-            <TextView
-                style="@style/land_strikesSpares_TextField"
-                android:layout_weight="2"
-                android:text="@string/sparesText" />
-
-            <TextView
-                android:id="@+id/player_2_spares"
-                style="@style/land_strikesSpares_CountField"
-                android:layout_weight="1"
-                android:text="" />
-
+                android:onClick="player2roll"
+                android:text="@string/player_2_roll" />
         </LinearLayout>
 
     </LinearLayout>
-
-
-    <LinearLayout
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="@dimen/null_margin_padding"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <Button
-            style="@style/land_redButton"
-            android:layout_weight="1"
-            android:onClick="player1roll"
-            android:text="@string/player_1_roll" />
-
-        <Button
-            style="@style/land_redButton"
-            android:layout_weight="1"
-            android:onClick="reset"
-            android:text="@string/reset" />
-
-        <Button
-            style="@style/land_redButton"
-            android:layout_weight="1"
-            android:onClick="player2roll"
-            android:text="@string/player_2_roll" />
-    </LinearLayout>
-
-
-</LinearLayout>
+</ScrollView>

@@ -70,12 +70,55 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
         setContentView(R.layout.activity_main);
-
-        refreshScores();
+            refreshScores();
+        }
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+
+        outState.putInt("p1score", p1score);
+        outState.putInt("p1strikes", p1strikes);
+        outState.putInt("p1spares", p1spares);
+        outState.putInt("p1numberOfPins", p1numberOfPins);
+        outState.putInt("p1pinsHit", p1pinsHit);
+        outState.putInt("p1RollButtonListener", p1RollButtonListener);
+        outState.putInt("p2score", p2score);
+        outState.putInt("p2strikes", p2strikes);
+        outState.putInt("p2spares", p2spares);
+        outState.putInt("p2pinsHit", p2pinsHit);
+        outState.putInt("p2numberOfPins", p2numberOfPins);
+        outState.putInt("p2RollButtonListener", p2RollButtonListener);
+        outState.putInt("round", round);
+        outState.putString("headerText", headerText);
+        outState.putString("flavorText", flavorText);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        p1score = savedInstanceState.getInt("p1score");
+        p1strikes = savedInstanceState.getInt("p1strikes");
+        p1spares = savedInstanceState.getInt("p1spares");
+        p1numberOfPins = savedInstanceState.getInt("p1numberOfPins");
+        p1pinsHit = savedInstanceState.getInt("p1pinsHit");
+        p1RollButtonListener = savedInstanceState.getInt("p1RollButtonListener");
+        p2score = savedInstanceState.getInt("p2score");
+        p2strikes = savedInstanceState.getInt("p2strikes");
+        p2spares = savedInstanceState.getInt("p2spares");
+        p2pinsHit = savedInstanceState.getInt("p2pinsHit");
+        p2numberOfPins = savedInstanceState.getInt("p2numberOfPins");
+        p2RollButtonListener = savedInstanceState.getInt("p2RollButtonListener");
+        round = savedInstanceState.getInt("round");
+        headerText = savedInstanceState.getString("headerText");
+        flavorText = savedInstanceState.getString("flavorText");
+        refreshScores();
+    }
 
     /**
      * Displays upper text in the section with a transparent background (header text)
@@ -177,6 +220,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //To clear the code, I'm adding separate functions for string randomzations
+    private void randomizeFlavorText() {
+        flavorText = flavorGoodLuck[stringsRandomizer(flavorGoodLuck.length)];
+    }
+
+    private void randomizeStrikeText() {
+        flavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
+    }
+
+    private void randomizeSpareText() {
+        flavorText = flavorSpare[stringsRandomizer(flavorSpare.length)];
+    }
+
+
     /**
      * simulates a given player's roll
      *
@@ -230,11 +287,10 @@ public class MainActivity extends AppCompatActivity {
             p1strikes += 1;
             p1score += 15;
             p1RollButtonListener = 0;
-
             p1numberOfPins = 10;
             headerText = "Player 2 turn, roll 1";
             //picks a flavor text for a strike (  nameOfArray[number of a picked string, which is a randomization method] )
-            flavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
+            randomizeStrikeText();
         } else {
 
             //This tells the program that a player has made his first roll and tries to hit remaining pins
@@ -251,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
         if (p1numberOfPins == 0) {
             p1spares += 1;
             p1score += 7;
-            flavorText = flavorSpare[stringsRandomizer(flavorSpare.length)];
+            randomizeSpareText();
         }
         p1score += p1pinsHit;
         p1numberOfPins = 10;
@@ -263,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * random engines simulating bowling rolls for player 1 (based on number of pins in play)
      */
-    // act the same as palyer 1's, but aslo second roll (or a strike) adds 1 to rounds counter
+    // act the same as palyer 1's, but aslo second roll (or a strike) adds 1 to rounds counterflavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
     private void player2FirstRoll() {
         p2pinsHit = p1rollsim();
         p2numberOfPins -= p2pinsHit;
@@ -274,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
             p2score += 15;
             p2RollButtonListener = 0;
             p2numberOfPins = 10;
-            flavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
+            randomizeStrikeText();
             headerText = "Player 1 turn, roll 1";
         } else {
             p2RollButtonListener = 1;
@@ -287,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
         if (p2numberOfPins == 0) {
             p2spares += 1;
             p2score += 7;
-            flavorText = flavorSpare[stringsRandomizer(flavorSpare.length)];
+            randomizeSpareText();
         }
         p2score += p2pinsHit;
         p2numberOfPins = 10;
@@ -322,7 +378,8 @@ public class MainActivity extends AppCompatActivity {
      * "Player 1 Roll" button behavior
      */
     public void player1roll(View view) {
-        flavorText = flavorGoodLuck[stringsRandomizer(flavorGoodLuck.length)];
+
+        randomizeFlavorText();
 
         //It's a condition for an endgame screen
         if (round == 11) {
@@ -361,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
      * "Player 2 Roll" button behavior
      */
     public void player2roll(View view) {
-        flavorText = flavorGoodLuck[stringsRandomizer(flavorGoodLuck.length)];
+        randomizeFlavorText();
         if (round == 11) {
             winScreen();
             refreshScores();
@@ -390,17 +447,31 @@ public class MainActivity extends AppCompatActivity {
     //This happens when "rounds" count hits 10; then, the match is over and player with ore points wins.
     private void winScreen() {
         if (p1score > p2score) {
-            headerText = "Player 1 WINS!";
-            flavorText = "Player 1 turned out to be better! Now hit the Reset button to play again.";
+            player1Wins();
         } else if (p1score == p2score) {
-            headerText = "It's a DRAW!";
-            flavorText = "No one has expected the draw! Now hit the Reset button to play again. ";
+            drawOutcome();
         } else {
-            headerText = "Player 2 WINS!";
-            flavorText = "Player 2 turned out to be better! Now hit the Reset button to play again.";
-
+            player2Wins();
         }
         refreshScores();
+
+
+    }
+
+    // Actions taken for a given match outcome.
+    private void player1Wins() {
+        headerText = "Player 1 WINS!";
+        flavorText = "Player 1 turned out to be better! Now hit the Reset button to play again.";
+    }
+
+    private void player2Wins() {
+        headerText = "Player 2 WINS!";
+        flavorText = "Player 2 turned out to be better! Now hit the Reset button to play again.";
+    }
+
+    private void drawOutcome() {
+        headerText = "It's a DRAW!";
+        flavorText = "No one has expected the draw! Now hit the Reset button to play again. ";
 
     }
 }
