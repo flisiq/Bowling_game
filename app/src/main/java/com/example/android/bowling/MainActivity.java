@@ -8,46 +8,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * These are values for player 1
-     */
-
-    // Those are scores and ints displayed in app
-    private int p1score = 0;
-    private int p1strikes = 0;
-    private int p1spares = 0;
-
-    //This tracks state of Pins on play
-    private int p1numberOfPins = 10;
-    private int p1pinsHit = 0;
-
-    //a listener for "Player 1 roll" Button
-    private int p1RollButtonListener = 0;
-
-    /**
-     * These are Player 2's values
-     */
-
-    // Displayables for player 2
-    private int p2score = 0;
-    private int p2strikes = 0;
-    private int p2spares = 0;
-
-    //State of pins
-    private int p2pinsHit = 0;
-    private int p2numberOfPins = 10;
-    private int p2RollButtonListener = 0;
-
-    //keeping track of rounds
-    private int round = 1;
-
-    //this appears on the upper part of a red box as header text
-    private String headerText = "Player 1 turn, roll 1";
-
-    // This is lower part of the red box, it equals the random text below
-    private String flavorText = "Welcome in Ten-pin Bowling game! Tap the " +
-            "\" PLAYER 1 ROLL \" button to begin.";
-
     // if You push a player's button, one of the messages will appear in the red box
     private final String[] flavorGoodLuck = {"Good luck!", "Go on!", "Having fun?", "Who is winning?",
             "Who loses, makes a dinner!", "Next roll will strike!",
@@ -61,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
             "I wish I had more free time!", "Don't fall over!",
             "Do You have bowling boots?",
             "Where did You learn this?!",};
-
     // this is picked when a player hits strike
     private final String[] flavorStrike = {"Woah, a STRIKE!", "Oh baby, a STRIKE!", "STRIKE!", "STRIKE, excellent!",
             "STRIKE, awesome!", "W1ow, now You will surely win after this STRIKE!",
@@ -70,13 +29,43 @@ public class MainActivity extends AppCompatActivity {
             "STRIKE, congrats!", "Was that a STRIKE, or just a fantasy?!",
             "A STRIKE, how did You do it?!", "You got them all by a STRIKE!",
             "You startled the opponent with a STRIKE!",};
-
     // same for a spare
     private final String[] flavorSpare = {"Nice throw, a SPARE!", "Nice SPARE!", "Finally, all of them! SPARE!",
             "And suddenly, a SPARE!", "THat's a SPARE, I am proud!", "Aaaand SPARE!",
             "A handsome SPARE! ", "Oh, You hit a SPARE!", "SPARE! You never miss, eh?",
             "That's what I call a SPARE!", "SPARE, nice!", "Tha was a good SPARE!"};
+    /**
+     * These are values for player 1
+     */
 
+    // Those are scores and ints displayed in app
+    private int p1score = 0;
+    private int p1strikes = 0;
+    private int p1spares = 0;
+    //This tracks state of Pins on play
+    private int p1numberOfPins = 10;
+    private int p1pinsHit = 0;
+    //a listener for "Player 1 roll" Button
+    private int p1RollButtonListener = 0;
+    /**
+     * These are Player 2's values
+     */
+
+    // Displayables for player 2
+    private int p2score = 0;
+    private int p2strikes = 0;
+    private int p2spares = 0;
+    //State of pins
+    private int p2pinsHit = 0;
+    private int p2numberOfPins = 10;
+    private int p2RollButtonListener = 0;
+    //keeping track of rounds
+    private int round = 1;
+    //this appears on the upper part of a red box as header text
+    private String headerText = "Player 1 turn, roll 1";
+    // This is lower part of the red box, it equals the random text below
+    private String flavorText = "Welcome in Ten-pin Bowling game! Tap the " +
+            "\" PLAYER 1 ROLL \" button to begin.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -393,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
                 refreshScores();
             }
         } else {
-            flavorText = "Now it's Player 2's turn!";
+            flavorText = "Now it's Player 1's turn!";
             refreshScores();
         }
     }

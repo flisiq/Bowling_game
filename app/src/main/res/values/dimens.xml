@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="small_margin_padding">6dp</dimen>
+    <dimen name="button_FontSize">16sp</dimen>
+    <dimen name="header_FontSize">20sp</dimen>
+    <dimen name="medium_margin_padding">15dp</dimen>
+    <dimen name="smallScore_FontSize">20sp</dimen>
+    <dimen name="bigScore_FontSize">55sp</dimen>
+    <dimen name="playerName_FontSize">23sp</dimen>
+    <dimen name="round_FontSize">18sp</dimen>
+    <dimen name="title_FontSize">32sp</dimen>
+    <dimen name="big_margin_padding">20dp</dimen>
+    <dimen name="null_margin_padding">0dp</dimen>
+    <dimen name="land_bigScore_FontSize">34sp</dimen>
+</resources>

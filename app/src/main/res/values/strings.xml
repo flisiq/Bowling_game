@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bowling</string>
+    <string name="title">Bowling simplified!</string>
+    <string name="landTitle1">B\no\nw\nl\ni\nn\ng</string>
+    <string name="landTitle2">S\ni\nm\np\nl\ni\nf\ni\ne\nd</string>
+    <string name="reset">Reset</string>
+    <string name="player_2_roll">Player 2 roll</string>
+    <string name="player_1_roll">Player 1 roll</string>
+    <string name="strikesText">Strikes:</string>
+    <string name="sparesText">Spares:</string>
+    <string name="player_1_name">Player 1:</string>
+    <string name="player_2_name">Player 2:</string>
+    <string name="round">Round:</string>
+</resources>
