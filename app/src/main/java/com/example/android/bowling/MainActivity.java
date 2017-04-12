@@ -8,6 +8,16 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            setContentView(R.layout.activity_main);
+            refreshScores();
+        }
+
+    }
+
     // if You push a player's button, one of the messages will appear in the red box
     private final String[] flavorGoodLuck = {"Good luck!", "Go on!", "Having fun?", "Who is winning?",
             "Who loses, makes a dinner!", "Next roll will strike!",
@@ -67,15 +77,7 @@ public class MainActivity extends AppCompatActivity {
     private String flavorText = "Welcome in Ten-pin Bowling game! Tap the " +
             "\" PLAYER 1 ROLL \" button to begin.";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-        setContentView(R.layout.activity_main);
-            refreshScores();
-        }
 
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -210,8 +212,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * this engine picks a random string from an array based on its lenght (so it fits any array)
-     * @return - returns a numbe of which string is picked by random
+     * this engine picks a random string from an array based on its length (so it fits any array)
+     * @return - returns a number of which string is picked by random
      */
     private int stringsRandomizer(int length) {
         double randomNumber = Math.random();
@@ -220,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //To clear the code, I'm adding separate functions for string randomzations
+    //To clear the code, I'm adding separate functions for string randomizations
     private void randomizeFlavorText() {
         flavorText = flavorGoodLuck[stringsRandomizer(flavorGoodLuck.length)];
     }
@@ -319,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * random engines simulating bowling rolls for player 1 (based on number of pins in play)
      */
-    // act the same as palyer 1's, but aslo second roll (or a strike) adds 1 to rounds counterflavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
+    // act the same as player 1's, but aslo second roll (or a strike) adds 1 to rounds counterflavorText = flavorStrike[stringsRandomizer(flavorStrike.length)];
     private void player2FirstRoll() {
         p2pinsHit = p1rollsim();
         p2numberOfPins -= p2pinsHit;
@@ -397,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
         // If above conditions are not met, just rolls the bowling ball :D
         } else if (headerText == "Player 1 turn, roll 1" || headerText == "Player 1 turn, roll 2") {
 
-            // This section checks wether it's a first try of a round to hit all the pins (with strike
+            // This section checks whether it's a first try of a round to hit all the pins (with strike
             // possibility), or a second roll, where player tries to hit remaining pins.
             if (p1RollButtonListener == 0) {
                 player1FirstRoll();
